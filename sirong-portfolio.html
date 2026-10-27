@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sirong Zhao — Product Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* =========================================================
+   Arco Design tokens (light)
+   ========================================================= */
+:root {
+  --primary-1: #E8F3FF;
+  --primary-2: #BEDAFF;
+  --primary-3: #94BFFF;
+  --primary-5: #4080FF;
+  --primary-6: #165DFF;
+  --primary-7: #0E42D2;
+  --success-1: #E8FFEA; --success-6: #00B42A;
+  --warning-1: #FFF7E8; --warning-6: #FF7D00;
+  --gold-1:    #FFFCE8; --gold-6:    #F7BA1E;
+  --purple-1:  #F5E8FF; --purple-6:  #722ED1;
+  --cyan-1:    #E8FFFB; --cyan-6:    #0FC6C2;
+
+  --text-1: #1D2129;
+  --text-2: #4E5969;
+  --text-3: #86909C;
+  --text-4: #C9CDD4;
+
+  --fill-1: #F7F8FA;
+  --fill-2: #F2F3F5;
+  --fill-3: #E5E6EB;
+  --fill-4: #C9CDD4;
+
+  --border-1: #F2F3F5;
+  --border-2: #E5E6EB;
+  --border-3: #C9CDD4;
+
+  --bg-1: #FFFFFF;
+  --bg-2: #FFFFFF;
+  --bg-popup: #FFFFFF;
+  --tooltip-bg: #1D2129;
+  --header-bg: rgba(255,255,255,.86);
+
+  --shadow-1: 0 2px 5px rgba(0,0,0,.08);
+  --shadow-2: 0 4px 10px rgba(0,0,0,.10);
+  --shadow-3: 0 8px 20px rgba(0,0,0,.10);
+
+  --radius-s: 2px;
+  --radius-m: 4px;
+  --radius-l: 8px;
+
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Noto Sans', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+
+/* Arco dark theme — follows system unless user forces light */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --primary-1: rgba(60,126,255,.18);
+    --primary-2: rgba(60,126,255,.32);
+    --primary-3: #1D4DD2;
+    --primary-5: #689FFF;
+    --primary-6: #3C7EFF;
+    --primary-7: #93BEFF;
+    --success-1: rgba(39,195,70,.18);  --success-6: #27C346;
+    --warning-1: rgba(255,150,38,.18); --warning-6: #FF9626;
+    --gold-1:    rgba(250,220,25,.16); --gold-6:    #FADC19;
+    --purple-1:  rgba(141,78,218,.2);  --purple-6:  #A871E3;
+    --cyan-1:    rgba(48,201,201,.18); --cyan-6:    #30C9C9;
+    --text-1: rgba(255,255,255,.9);
+    --text-2: rgba(255,255,255,.7);
+    --text-3: rgba(255,255,255,.5);
+    --text-4: rgba(255,255,255,.3);
+    --fill-1: rgba(255,255,255,.04);
+    --fill-2: rgba(255,255,255,.08);
+    --fill-3: rgba(255,255,255,.12);
+    --fill-4: rgba(255,255,255,.16);
+    --border-1: #2E2E30;
+    --border-2: #333335;
+    --border-3: #5F5F60;
+    --bg-1: #17171A;
+    --bg-2: #232324;
+    --bg-popup: #373739;
+    --tooltip-bg: #373739;
+    --header-bg: rgba(23,23,26,.82);
+    --shadow-1: 0 2px 5px rgba(0,0,0,.3);
+    --shadow-2: 0 4px 10px rgba(0,0,0,.35);
+    --shadow-3: 0 8px 20px rgba(0,0,0,.4);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --primary-1: rgba(60,126,255,.18);
+  --primary-2: rgba(60,126,255,.32);
+  --primary-3: #1D4DD2;
+  --primary-5: #689FFF;
+  --primary-6: #3C7EFF;
+  --primary-7: #93BEFF;
+  --success-1: rgba(39,195,70,.18);  --success-6: #27C346;
+  --warning-1: rgba(255,150,38,.18); --warning-6: #FF9626;
+  --gold-1:    rgba(250,220,25,.16); --gold-6:    #FADC19;
+  --purple-1:  rgba(141,78,218,.2);  --purple-6:  #A871E3;
+  --cyan-1:    rgba(48,201,201,.18); --cyan-6:    #30C9C9;
+  --text-1: rgba(255,255,255,.9);
+  --text-2: rgba(255,255,255,.7);
+  --text-3: rgba(255,255,255,.5);
+  --text-4: rgba(255,255,255,.3);
+  --fill-1: rgba(255,255,255,.04);
+  --fill-2: rgba(255,255,255,.08);
+  --fill-3: rgba(255,255,255,.12);
+  --fill-4: rgba(255,255,255,.16);
+  --border-1: #2E2E30;
+  --border-2: #333335;
+  --border-3: #5F5F60;
+  --bg-1: #17171A;
+  --bg-2: #232324;
+  --bg-popup: #373739;
+  --tooltip-bg: #373739;
+  --header-bg: rgba(23,23,26,.82);
+  --shadow-1: 0 2px 5px rgba(0,0,0,.3);
+  --shadow-2: 0 4px 10px rgba(0,0,0,.35);
+  --shadow-3: 0 8px 20px rgba(0,0,0,.4);
+  color-scheme: dark;
+}
+
+/* =========================================================
+   Base
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body {
+  background: var(--bg-1);
+  color: var(--text-1);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5715;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background .2s, color .2s;
+}
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+ul { list-style: none; }
+.icon { width: 1em; height: 1em; flex-shrink: 0; vertical-align: -0.125em; fill: none; stroke: currentColor; stroke-width: 4; stroke-linecap: butt; stroke-linejoin: miter; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+:focus-visible { outline: 2px solid var(--primary-6); outline-offset: 2px; border-radius: var(--radius-s); }
+
+/* =========================================================
+   Typography
+   ========================================================= */
+.h1 { font-size: clamp(40px, 6vw, 56px); font-weight: 600; line-height: 1.15; letter-spacing: -0.02em; }
+.h2 { font-size: clamp(26px, 3vw, 32px); font-weight: 600; line-height: 1.3; letter-spacing: -0.01em; }
+.h3 { font-size: 24px; font-weight: 600; line-height: 1.35; }
+.h5 { font-size: 16px; font-weight: 500; line-height: 1.5; }
+.text-primary { color: var(--primary-6); }
+.overline {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 14px; font-weight: 500; color: var(--primary-6);
+  margin-bottom: 8px;
+}
+.overline::before { content: ''; width: 16px; height: 2px; background: var(--primary-6); border-radius: 1px; }
+
+/* =========================================================
+   Components
+   ========================================================= */
+/* Button */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  height: 32px; padding: 0 15px;
+  font-size: 14px; font-weight: 400; white-space: nowrap;
+  border: 1px solid transparent; border-radius: var(--radius-s);
+  transition: all .1s cubic-bezier(0,0,1,1);
+}
+.btn-lg { height: 40px; padding: 0 19px; font-size: 14px; }
+.btn-sm { height: 28px; padding: 0 11px; font-size: 14px; }
+.btn-primary { background: var(--primary-6); color: #fff; }
+.btn-primary:hover { background: var(--primary-5); }
+.btn-primary:active { background: var(--primary-7); }
+.btn-secondary { background: var(--fill-2); color: var(--text-2); }
+.btn-secondary:hover { background: var(--fill-3); color: var(--text-2); }
+.btn-outline { border-color: var(--primary-6); color: var(--primary-6); background: transparent; }
+.btn-outline:hover { border-color: var(--primary-5); color: var(--primary-5); background: var(--primary-1); }
+.btn-text { color: var(--primary-6); padding: 0 8px; }
+.btn-text:hover { background: var(--fill-2); }
+.btn-icon { width: 32px; padding: 0; color: var(--text-2); }
+.btn-icon:hover { background: var(--fill-2); }
+.btn .icon { font-size: 14px; }
+
+/* Link */
+.link { display: inline-flex; align-items: center; gap: 4px; color: var(--primary-6); padding: 1px 4px; margin: 0 -4px; border-radius: var(--radius-s); transition: background .1s; }
+.link:hover { background: var(--fill-2); }
+
+/* Tag */
+.tag {
+  display: inline-flex; align-items: center; gap: 4px;
+  height: 24px; padding: 0 8px;
+  font-size: 12px; font-weight: 500; line-height: 22px; white-space: nowrap;
+  color: var(--text-1); background: var(--fill-2);
+  border: 1px solid transparent; border-radius: var(--radius-s);
+}
+.tag-lg { height: 32px; padding: 0 12px; font-size: 14px; font-weight: 400; }
+.tag-bordered { background: var(--bg-2); border-color: var(--border-2); }
+.tag-blue   { color: var(--primary-6); background: var(--primary-1); }
+.tag-orange { color: var(--warning-6); background: var(--warning-1); }
+.tag-green  { color: var(--success-6); background: var(--success-1); }
+.tag-purple { color: var(--purple-6);  background: var(--purple-1); }
+.tag-cyan   { color: var(--cyan-6);    background: var(--cyan-1); }
+.tag-solid  { color: #fff; background: var(--primary-6); }
+.tag .icon { font-size: 12px; }
+
+/* Badge (status dot) */
+.badge-status { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--text-1); }
+.badge-dot { position: relative; width: 6px; height: 6px; border-radius: 50%; background: var(--success-6); }
+.badge-dot::after { content: ''; position: absolute; inset: -3px; border-radius: 50%; border: 1px solid var(--success-6); animation: ping 1.6s ease-out infinite; }
+@keyframes ping { from { transform: scale(.6); opacity: 1; } to { transform: scale(1.8); opacity: 0; } }
+
+/* Tooltip */
+.has-tip { position: relative; }
+.tip {
+  position: absolute; bottom: calc(100% + 10px); left: 50%;
+  transform: translate(-50%, 4px) scale(.96);
+  min-width: max-content; max-width: 280px;
+  padding: 8px 12px;
+  background: var(--tooltip-bg); color: #fff;
+  font-size: 14px; font-weight: 400; line-height: 1.5715; white-space: normal; text-align: left;
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-2);
+  pointer-events: none; opacity: 0; z-index: 20;
+  transition: opacity .15s, transform .15s cubic-bezier(.3,1.3,.3,1);
+}
+.tip::after {
+  content: ''; position: absolute; top: 100%; left: 50%;
+  width: 8px; height: 8px; background: var(--tooltip-bg);
+  transform: translate(-50%, -4px) rotate(45deg); border-radius: 0 0 2px 0;
+}
+.has-tip:hover .tip, .has-tip:focus-visible .tip { opacity: 1; transform: translate(-50%, 0) scale(1); }
+
+/* Card */
+.card {
+  background: var(--bg-2);
+  border: 1px solid var(--border-2);
+  border-radius: var(--radius-m);
+  transition: box-shadow .2s cubic-bezier(0,0,1,1), border-color .2s;
+}
+.card-hover:hover { box-shadow: var(--shadow-2); border-color: transparent; }
+.card-header { display: flex; align-items: center; justify-content: space-between; height: 46px; padding: 0 16px; border-bottom: 1px solid var(--border-2); }
+.card-title { font-size: 16px; font-weight: 500; }
+.card-extra { font-size: 14px; color: var(--text-3); }
+.card-body { padding: 16px; }
+
+/* Divider */
+.divider { height: 1px; background: var(--border-2); margin: 20px 0; border: 0; }
+.divider-text { display: flex; align-items: center; gap: 16px; font-size: 16px; font-weight: 500; color: var(--text-1); margin: 40px 0 16px; }
+.divider-text::after { content: ''; flex: 1; height: 1px; background: var(--border-2); }
+
+/* Avatar / icon box */
+.icon-box {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border-radius: var(--radius-m);
+  font-size: 20px; color: var(--primary-6); background: var(--primary-1); flex-shrink: 0;
+}
+.icon-box.orange { color: var(--warning-6); background: var(--warning-1); }
+.icon-box.green  { color: var(--success-6); background: var(--success-1); }
+.icon-box.purple { color: var(--purple-6);  background: var(--purple-1); }
+.icon-box.cyan   { color: var(--cyan-6);    background: var(--cyan-1); }
+
+/* Statistic */
+.stat-title { font-size: 14px; color: var(--text-2); margin-bottom: 4px; line-height: 1.5; }
+.stat-value { font-size: 28px; font-weight: 600; line-height: 1.3; color: var(--text-1); font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.stat-value small { font-size: 16px; font-weight: 500; margin-left: 2px; }
+.stat-value.blue { color: var(--primary-6); }
+
+/* Steps (vertical) */
+.steps { display: flex; flex-direction: column; }
+.step { position: relative; display: flex; gap: 12px; padding-bottom: 14px; }
+.step:last-child { padding-bottom: 0; }
+.step:not(:last-child)::before {
+  content: ''; position: absolute; left: 13px; top: 32px; bottom: 4px; width: 1px;
+  background: var(--border-2); transition: background .3s;
+}
+.step-icon {
+  width: 28px; height: 28px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 500; flex-shrink: 0;
+  background: var(--fill-2); color: var(--text-2);
+  transition: background .3s, color .3s;
+}
+.step-icon .icon { font-size: 14px; stroke-width: 5; display: none; }
+.step-body { padding-top: 3px; }
+.step-title { font-size: 16px; color: var(--text-2); transition: color .3s; line-height: 1.4; }
+.step-desc { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+.step.is-finish .step-icon { background: var(--primary-1); color: var(--primary-6); }
+.step.is-finish .step-icon span { display: none; }
+.step.is-finish .step-icon .icon { display: block; }
+.step.is-finish::before { background: var(--primary-6); }
+.step.is-finish .step-title { color: var(--text-1); }
+.step.is-process .step-icon { background: var(--primary-6); color: #fff; }
+.step.is-process .step-title { color: var(--text-1); font-weight: 500; }
+
+/* Steps (horizontal, dot) */
+.dot-steps { display: flex; align-items: flex-start; }
+.dot-step { position: relative; flex: 1; text-align: center; min-width: 0; }
+.dot-step:not(:last-child)::after {
+  content: ''; position: absolute; top: 4px; left: calc(50% + 10px); right: calc(-50% + 10px); height: 1px;
+  background: var(--primary-6);
+}
+.dot-step i { display: block; width: 9px; height: 9px; margin: 0 auto 8px; border-radius: 50%; background: var(--primary-6); }
+.dot-step span { display: block; font-size: 12px; color: var(--text-2); line-height: 1.4; padding: 0 2px; }
+.dot-step:last-child i { box-shadow: 0 0 0 4px var(--primary-1); }
+
+/* Collapse */
+.collapse { border: 1px solid var(--border-2); border-radius: var(--radius-m); background: var(--bg-2); overflow: hidden; }
+.collapse-item + .collapse-item { border-top: 1px solid var(--border-2); }
+.collapse-header {
+  width: 100%; display: grid; grid-template-columns: 18px 1fr auto; align-items: start; gap: 14px;
+  padding: 16px 20px; text-align: left; background: var(--bg-2); transition: background .1s;
+}
+.collapse-header:hover { background: var(--fill-1); }
+.collapse-arrow {
+  width: 18px; height: 18px; margin-top: 2px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--fill-2); color: var(--text-2); font-size: 10px;
+  transition: transform .2s cubic-bezier(.34,.69,.1,1), background .2s, color .2s;
+}
+.collapse-arrow .icon { stroke-width: 6; }
+.collapse-item.is-open .collapse-arrow { transform: rotate(90deg); background: var(--primary-1); color: var(--primary-6); }
+.exp-role { font-size: 16px; font-weight: 500; color: var(--text-1); line-height: 1.5; }
+.exp-company { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 14px; color: var(--text-2); margin-top: 2px; }
+.exp-date { font-size: 14px; color: var(--text-3); white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 1px; }
+.collapse-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .25s cubic-bezier(.34,.69,.1,1); }
+.collapse-item.is-open .collapse-panel { grid-template-rows: 1fr; }
+.collapse-panel > div { overflow: hidden; }
+.collapse-content { margin: 0 20px 16px 52px; padding: 14px 16px; background: var(--fill-1); border-radius: var(--radius-m); }
+.collapse-content li { position: relative; padding-left: 16px; font-size: 14px; color: var(--text-2); line-height: 1.7; }
+.collapse-content li + li { margin-top: 6px; }
+.collapse-content li::before { content: ''; position: absolute; left: 2px; top: 10px; width: 4px; height: 4px; border-radius: 50%; background: var(--primary-6); }
+
+/* Alert */
+.alert {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 15px; margin-top: 16px;
+  font-size: 14px; color: var(--text-1);
+  background: var(--primary-1); border: 1px solid transparent; border-radius: var(--radius-s);
+}
+.alert > .icon { color: var(--primary-6); font-size: 16px; }
+
+/* Descriptions */
+.desc-list { display: flex; flex-wrap: wrap; gap: 8px 32px; }
+.desc-item { font-size: 14px; line-height: 1.5; }
+.desc-label { color: var(--text-3); margin-bottom: 2px; font-size: 12px; }
+.desc-value { color: var(--text-1); font-weight: 500; }
+
+/* Message (toast) */
+.message {
+  position: fixed; top: 24px; left: 50%; z-index: 1000;
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px; font-size: 14px; color: var(--text-1);
+  background: var(--bg-popup); border: 1px solid var(--border-2); border-radius: var(--radius-m);
+  box-shadow: var(--shadow-3);
+  transform: translate(-50%, -12px); opacity: 0; pointer-events: none;
+  transition: transform .2s cubic-bezier(.3,1.3,.3,1), opacity .2s;
+}
+.message.show { transform: translate(-50%, 0); opacity: 1; }
+.message .icon { color: var(--success-6); font-size: 16px; }
+
+/* =========================================================
+   Layout — header
+   ========================================================= */
+.header {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--header-bg);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  border-bottom: 1px solid var(--border-2);
+}
+.header .container { display: flex; align-items: center; height: 60px; gap: 24px; }
+.logo { display: flex; align-items: center; gap: 10px; font-size: 16px; font-weight: 600; color: var(--text-1); }
+.logo-mark {
+  width: 32px; height: 32px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: var(--primary-6); color: #fff; font-size: 13px; font-weight: 600; letter-spacing: .02em;
+}
+.menu { display: flex; align-items: center; height: 100%; gap: 4px; margin-left: 16px; }
+.menu a {
+  position: relative; display: flex; align-items: center; height: 100%;
+  padding: 0 12px; font-size: 14px; color: var(--text-2); transition: color .1s;
+}
+.menu a::before { content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 30px; transform: translateY(-50%); border-radius: var(--radius-s); background: transparent; z-index: -1; transition: background .1s; }
+.menu a:hover { color: var(--text-1); }
+.menu a:hover::before { background: var(--fill-2); }
+.menu a.active { color: var(--primary-6); font-weight: 500; }
+.menu a.active::after { content: ''; position: absolute; left: 12px; right: 12px; bottom: 0; height: 3px; border-radius: 3px 3px 0 0; background: var(--primary-6); }
+.header-right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+.theme-btn .i-sun { display: none; }
+:root[data-theme="dark"] .theme-btn .i-sun { display: block; }
+:root[data-theme="dark"] .theme-btn .i-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme-btn .i-sun { display: block; }
+  :root:not([data-theme="light"]) .theme-btn .i-moon { display: none; }
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero { position: relative; overflow: hidden; padding: 72px 0 80px; border-bottom: 1px solid var(--border-2); }
+.hero::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(560px 360px at 88% 6%, var(--primary-1), transparent 70%),
+    radial-gradient(420px 300px at 6% 96%, var(--cyan-1), transparent 70%);
+}
+.hero::after {
+  content: ''; position: absolute; inset: 0; z-index: -1; opacity: .6;
+  background-image: linear-gradient(var(--border-1) 1px, transparent 1px), linear-gradient(90deg, var(--border-1) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse at 70% 30%, #000 10%, transparent 65%);
+}
+.hero-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 64px; align-items: center; }
+.hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; margin-bottom: 24px; }
+.hero-meta .loc { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--text-3); }
+.hero-pill { display: inline-flex; align-items: center; height: 28px; padding: 0 12px; border-radius: 14px; background: var(--bg-2); border: 1px solid var(--border-2); box-shadow: var(--shadow-1); }
+.hero-pill .badge-status { font-size: 12px; color: var(--text-2); }
+.hero .h1 { margin-bottom: 20px; }
+.hero-bio { font-size: 16px; line-height: 1.75; color: var(--text-2); max-width: 500px; margin-bottom: 28px; }
+.hero-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 36px; }
+.hero-tags .tag { cursor: default; transition: border-color .15s, color .15s; }
+.hero-tags .tag:hover, .hero-tags .tag:focus-visible { border-color: var(--primary-6); color: var(--primary-6); }
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.hero-card { box-shadow: var(--shadow-3); border-color: var(--border-1); }
+.hero-card .card-body { padding: 20px; }
+.impact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+.impact-cell { padding: 12px; background: var(--fill-1); border-radius: var(--radius-m); }
+.impact-cell .stat-title { font-size: 12px; color: var(--text-3); margin: 4px 0 0; }
+.sub-title { font-size: 14px; font-weight: 500; color: var(--text-1); display: flex; align-items: center; justify-content: space-between; }
+.sub-title span { font-size: 12px; font-weight: 400; color: var(--text-3); }
+
+/* =========================================================
+   Skills marquee
+   ========================================================= */
+.skills { background: var(--fill-1); border-bottom: 1px solid var(--border-2); padding: 14px 0; overflow: hidden; }
+.marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+.skills:hover .marquee { animation-play-state: paused; }
+.marquee-group { display: flex; gap: 12px; padding-right: 12px; }
+.marquee .tag { font-size: 14px; }
+.marquee .tag i { width: 6px; height: 6px; border-radius: 50%; background: var(--primary-6); margin-right: 4px; }
+.marquee .tag:nth-child(4n+2) i { background: var(--cyan-6); }
+.marquee .tag:nth-child(4n+3) i { background: var(--warning-6); }
+.marquee .tag:nth-child(4n+4) i { background: var(--purple-6); }
+@keyframes marquee { to { transform: translateX(-50%); } }
+
+/* =========================================================
+   Sections
+   ========================================================= */
+.section { padding: 88px 0; }
+.section-alt { background: var(--fill-1); border-top: 1px solid var(--border-2); border-bottom: 1px solid var(--border-2); }
+.side-grid { display: grid; grid-template-columns: 280px 1fr; gap: 64px; }
+.side-sticky { position: sticky; top: 92px; height: fit-content; }
+.side-sticky p { font-size: 14px; color: var(--text-2); margin-top: 12px; line-height: 1.7; }
+
+/* About */
+.about-lead { font-size: clamp(18px, 2vw, 22px); font-weight: 500; line-height: 1.6; color: var(--text-1); margin-bottom: 16px; letter-spacing: -0.005em; }
+.about-lead mark { background: linear-gradient(transparent 62%, var(--primary-2) 62%); color: var(--primary-6); padding: 0 2px; }
+.about-p { font-size: 15px; color: var(--text-2); line-height: 1.8; max-width: 680px; }
+.about-p + .about-p { margin-top: 12px; }
+.edu-list { display: flex; flex-direction: column; gap: 12px; }
+.edu-card { display: flex; gap: 16px; padding: 20px; }
+.edu-title { font-size: 16px; font-weight: 600; line-height: 1.4; }
+.edu-school { font-size: 14px; color: var(--primary-6); font-weight: 500; margin: 2px 0 8px; }
+.edu-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+.edu-card .tag { margin-top: 12px; }
+.prog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.prog-card { padding: 16px 20px; }
+.prog-card h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
+.prog-card p { font-size: 13px; color: var(--text-2); line-height: 1.6; }
+
+/* Work */
+.work-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 32px; flex-wrap: wrap; }
+.work-head p { font-size: 14px; color: var(--text-3); }
+.featured { display: grid; grid-template-columns: 1fr 300px; overflow: hidden; margin-bottom: 16px; }
+.featured-main { padding: 32px; display: flex; flex-direction: column; }
+.featured-side { padding: 32px 28px; background: var(--fill-1); border-left: 1px solid var(--border-2); }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.featured .tag-row { margin-bottom: 16px; }
+.work-title { font-size: 26px; font-weight: 600; line-height: 1.35; margin-bottom: 4px; }
+.work-sub { display: block; font-size: 18px; font-weight: 400; color: var(--text-2); margin-top: 2px; }
+.work-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; margin-top: 12px; max-width: 640px; }
+.block-label { font-size: 12px; color: var(--text-3); margin-bottom: 12px; }
+.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border-2); border-radius: var(--radius-m); margin-top: 24px; }
+.stats-row > div { padding: 14px 16px; }
+.stats-row > div + div { border-left: 1px solid var(--border-2); }
+.stats-row .stat-value { font-size: 24px; }
+.stats-row .stat-title { font-size: 12px; color: var(--text-3); margin: 2px 0 0; }
+.work-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border-2); }
+.check-list li { display: flex; gap: 8px; align-items: flex-start; font-size: 14px; color: var(--text-1); line-height: 1.5; }
+.check-list li + li { margin-top: 10px; }
+.check-list .icon { color: var(--success-6); margin-top: 3px; font-size: 14px; stroke-width: 5; }
+.check-list.pain .icon { color: var(--primary-6); }
+
+.work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.work-card { padding: 24px; display: flex; flex-direction: column; position: relative; }
+.work-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; }
+.work-card .work-title { font-size: 20px; }
+.work-card .work-sub { font-size: 15px; }
+.work-card .work-desc { font-size: 14px; flex: 1; }
+.process-inline { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 16px; }
+.process-inline .tag { font-weight: 400; }
+.process-inline .icon { font-size: 10px; color: var(--text-4); stroke-width: 6; }
+.work-card-foot { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-2); }
+.work-card .arrow-go { transition: transform .2s; }
+.work-card:hover .arrow-go { transform: translateX(3px); }
+.stretched::after { content: ''; position: absolute; inset: 0; }
+
+/* Contact banner + footer */
+.cta {
+  position: relative; overflow: hidden;
+  border-radius: var(--radius-l);
+  padding: 48px;
+  background: linear-gradient(120deg, #165DFF 0%, #3C7EFF 55%, #14C9C9 130%);
+  color: #fff;
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+}
+.cta::after {
+  content: ''; position: absolute; right: -80px; top: -120px; width: 360px; height: 360px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.22), transparent 65%);
+}
+.cta .h2 { color: #fff; }
+.cta p { color: rgba(255,255,255,.8); font-size: 16px; margin-top: 8px; }
+.cta-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 20px; font-size: 14px; }
+.cta-links a { color: #fff; display: inline-flex; align-items: center; gap: 6px; opacity: .9; }
+.cta-links a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+.cta-actions { position: relative; z-index: 1; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-white { background: #fff; color: #165DFF; font-weight: 500; }
+.btn-white:hover { background: #E8F3FF; }
+.btn-ghost-white { border-color: rgba(255,255,255,.6); color: #fff; }
+.btn-ghost-white:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+
+.footer { border-top: 1px solid var(--border-2); padding: 20px 0; margin-top: 88px; }
+.footer .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.footer-copy { font-size: 12px; color: var(--text-3); }
+.footer-links { display: flex; gap: 4px; flex-wrap: wrap; }
+.footer-links a, .footer-links button { font-size: 14px; color: var(--text-2); padding: 4px 8px; border-radius: var(--radius-s); transition: background .1s, color .1s; }
+.footer-links a:hover, .footer-links button:hover { background: var(--fill-2); color: var(--text-1); }
+
+/* Reveal */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.8,.2,1); }
+.js .reveal.visible { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* =========================================================
+   Responsive
+   ========================================================= */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .side-grid { grid-template-columns: 1fr; gap: 32px; }
+  .side-sticky { position: static; }
+  .work-grid { grid-template-columns: 1fr 1fr; }
+  .featured { grid-template-columns: 1fr; }
+  .featured-side { border-left: 0; border-top: 1px solid var(--border-2); display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .featured-side > div + div { margin-top: 0 !important; }
+}
+@media (max-width: 720px) {
+  .container { padding: 0 16px; }
+  .menu { display: none; }
+  .hero { padding: 48px 0 56px; }
+  .section { padding: 64px 0; }
+  .prog-grid, .work-grid { grid-template-columns: 1fr; }
+  .featured-main { padding: 24px 20px; }
+  .featured-side { padding: 24px 20px; grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: 1fr 1fr; }
+  .stats-row > div:nth-child(3) { border-left: 0; }
+  .stats-row > div:nth-child(n+3) { border-top: 1px solid var(--border-2); }
+  .work-title { font-size: 22px; }
+  .work-sub { font-size: 16px; }
+  .collapse-header { grid-template-columns: 18px 1fr; padding: 14px 16px; }
+  .exp-date { grid-column: 2; font-size: 13px; padding: 0; }
+  .collapse-content { margin: 0 16px 14px; }
+  .cta { grid-template-columns: 1fr; padding: 32px 24px; }
+  .impact-cell { padding: 10px; }
+  .stat-value { font-size: 24px; }
+  .header-cta { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- Arco-style icon sprite (48×48 grid, 4px stroke) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-right" viewBox="0 0 48 48"><path d="m16 39.513 15.556-15.557L16 8.4"/></symbol>
+  <symbol id="i-arrow-right" viewBox="0 0 48 48"><path d="m27.728 11.27 12.728 12.728-12.728 12.728M5 24h34.295"/></symbol>
+  <symbol id="i-check" viewBox="0 0 48 48"><path d="M41.678 11.05 19.05 33.678 6.322 20.95"/></symbol>
+  <symbol id="i-check-circle-fill" viewBox="0 0 48 48"><path fill="currentColor" stroke="none" d="M24 44c11.046 0 20-8.954 20-20S35.046 4 24 4 4 12.954 4 24s8.954 20 20 20Zm10.207-24.379a1 1 0 0 0 0-1.414l-1.414-1.414a1 1 0 0 0-1.414 0L22 26.172l-4.878-4.88a1 1 0 0 0-1.415 0l-1.414 1.415a1 1 0 0 0 0 1.414l7 7a1 1 0 0 0 1.414 0l11.5-11.5Z"/></symbol>
+  <symbol id="i-info" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"/><path d="M24 20v14M24 14v2"/></symbol>
+  <symbol id="i-location" viewBox="0 0 48 48"><circle cx="24" cy="19" r="5"/><path d="M39 20.405C39 28.914 24 43 24 43S9 28.914 9 20.405C9 11.897 15.716 5 24 5c8.284 0 15 6.897 15 15.405Z"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 48 48"><path d="M39.979 29.241c.11-.344-.23-.654-.574-.544-1.53.487-3.162.75-4.855.75-8.834 0-15.997-7.163-15.997-15.997 0-1.693.263-3.324.75-4.855.11-.344-.2-.684-.544-.574C11.939 10.19 7 16.576 7 24.114 7 33.44 14.56 41 23.886 41c7.538 0 13.923-4.94 16.093-11.759Z"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="7"/><path d="M24 7v3M24 38v3M7 24h3M38 24h3M11.98 11.98l2.12 2.12M33.9 33.9l2.12 2.12M11.98 36.02l2.12-2.12M33.9 14.1l2.12-2.12"/></symbol>
+  <symbol id="i-email" viewBox="0 0 48 48"><path d="M6 11h36v26H6z"/><path d="m6 12 18 14 18-14"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 48 48"><path d="M20 6h18a2 2 0 0 1 2 2v22M8 16v24c0 1.105.891 2 1.996 2h20.007A1.991 1.991 0 0 0 32 40.008V15.997A1.997 1.997 0 0 0 30 14H10a2 2 0 0 0-2 2Z"/></symbol>
+  <symbol id="i-launch" viewBox="0 0 48 48"><path d="M41 26v14a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h14M19.822 28.178 39.899 8.1M41 20V7H28"/></symbol>
+  <symbol id="i-star" viewBox="0 0 48 48"><path fill="currentColor" stroke="none" d="M22.683 5.415c.568-1.043 2.065-1.043 2.634 0l5.507 10.098a1.5 1.5 0 0 0 1.04.756l11.306 2.117c1.168.219 1.63 1.642.814 2.505l-7.902 8.359a1.5 1.5 0 0 0-.397 1.223l1.48 11.407c.153 1.177-1.058 2.057-2.131 1.548l-10.391-4.933a1.5 1.5 0 0 0-1.287 0l-10.39 4.933c-1.073.51-2.284-.37-2.131-1.548l1.48-11.407a1.5 1.5 0 0 0-.398-1.223L3.616 20.89c-.816-.863-.353-2.286.814-2.505l11.306-2.117a1.5 1.5 0 0 0 1.04-.756l5.907-10.098Z"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 48 48"><path d="M24 33c-6.075 0-11-4.925-11-11V7h22v15c0 6.075-4.925 11-11 11Zm0 0v8m-8 0h16M35 11h6v4a6 6 0 0 1-6 6M13 11H7v4a6 6 0 0 0 6 6"/></symbol>
+  <symbol id="i-book" viewBox="0 0 48 48"><path d="M24 13 7 7v28l17 6 17-6V7l-17 6Zm0 0v27.5"/></symbol>
+  <symbol id="i-bank" viewBox="0 0 48 48"><path d="M6 41h36M24 7l18 10H6L24 7ZM11 21v15M19 21v15M29 21v15M37 21v15"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 48 48"><path d="M38.083 12.912a9.929 9.929 0 0 1 .177 13.878l-.177.18L25.76 39.273c-.972.97-2.548.97-3.52 0L9.917 26.971l-.177-.181a9.929 9.929 0 0 1 14.037-14.04l.223.224.223-.224a9.929 9.929 0 0 1 14.037 0Z"/></symbol>
+  <symbol id="i-public" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17"/><path d="M7 24h34M24 7c4.5 4.4 6.7 10 6.7 17S28.5 36.6 24 41c-4.5-4.4-6.7-10-6.7-17S19.5 11.4 24 7Z"/></symbol>
+</svg>
+
+<div class="message" id="message" role="status" aria-live="polite">
+  <svg class="icon"><use href="#i-check-circle-fill"/></svg><span id="messageText">Copied</span>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="header">
+  <div class="container">
+    <a href="#" class="logo"><span class="logo-mark">SZ</span>Sirong Zhao</a>
+    <nav class="menu" aria-label="Primary">
+      <a href="#work" data-nav="work">Work</a>
+      <a href="#experience" data-nav="experience">Experience</a>
+      <a href="#about" data-nav="about">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="header-right">
+      <button class="btn btn-icon theme-btn" id="themeBtn" aria-label="Toggle dark mode">
+        <svg class="icon i-moon" style="font-size:16px"><use href="#i-moon"/></svg>
+        <svg class="icon i-sun" style="font-size:16px"><use href="#i-sun"/></svg>
+      </button>
+      <a href="contact.html" class="btn btn-primary header-cta">Get in touch</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="hero-meta">
+        <span class="hero-pill"><span class="badge-status"><span class="badge-dot"></span>Open to full-time product design roles</span></span>
+        <span class="loc"><svg class="icon"><use href="#i-location"/></svg>Product Designer · Ann Arbor, MI</span>
+      </div>
+      <h1 class="h1">Sirong <span class="text-primary">Zhao</span></h1>
+      <p class="hero-bio">I design data-informed digital products that improve how people decide, act, and engage — working at the intersection of product design, analytics, and user behavior.</p>
+      <div class="hero-tags">
+        <span class="tag tag-lg tag-bordered has-tip" tabindex="0">Product Strategy<span class="tip" role="tooltip">Defining product direction through user needs &amp; business goals</span></span>
+        <span class="tag tag-lg tag-bordered has-tip" tabindex="0">Behavioral UX<span class="tip" role="tooltip">Designing for how people actually think and decide</span></span>
+        <span class="tag tag-lg tag-bordered has-tip" tabindex="0">Growth &amp; Experimentation<span class="tip" role="tooltip">A/B testing, metrics, and iteration to drive adoption</span></span>
+        <span class="tag tag-lg tag-bordered has-tip" tabindex="0">Data-informed Design<span class="tip" role="tooltip">Using research &amp; analytics to validate every design choice</span></span>
+      </div>
+      <div class="hero-cta">
+        <a href="#work" class="btn btn-primary btn-lg">View Work <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        <a href="#about" class="btn btn-secondary btn-lg">About me</a>
+      </div>
+    </div>
+
+    <div class="card hero-card">
+      <div class="card-header">
+        <span class="card-title">Design Philosophy</span>
+        <span class="card-extra">Iterative loop</span>
+      </div>
+      <div class="card-body">
+        <div class="steps" id="philoSteps">
+          <div class="step"><span class="step-icon"><span>1</span><svg class="icon"><use href="#i-check"/></svg></span><div class="step-body"><div class="step-title">Observe behavior</div></div></div>
+          <div class="step"><span class="step-icon"><span>2</span><svg class="icon"><use href="#i-check"/></svg></span><div class="step-body"><div class="step-title">Identify friction</div></div></div>
+          <div class="step"><span class="step-icon"><span>3</span><svg class="icon"><use href="#i-check"/></svg></span><div class="step-body"><div class="step-title">Test solutions</div></div></div>
+          <div class="step"><span class="step-icon"><span>4</span><svg class="icon"><use href="#i-check"/></svg></span><div class="step-body"><div class="step-title">Measure outcomes</div></div></div>
+          <div class="step"><span class="step-icon"><span>5</span><svg class="icon"><use href="#i-check"/></svg></span><div class="step-body"><div class="step-title">Refine continuously</div></div></div>
+        </div>
+        <hr class="divider">
+        <div class="sub-title">Validated Product Impact <span>Usability testing</span></div>
+        <div class="impact-grid">
+          <div class="impact-cell"><div class="stat-value blue"><span data-count="32">32</span><small>%</small></div><div class="stat-title">Reduced interaction steps</div></div>
+          <div class="impact-cell"><div class="stat-value blue"><span data-count="24">24</span><small>%</small></div><div class="stat-title">Faster task completion</div></div>
+          <div class="impact-cell"><div class="stat-value blue"><span data-count="15">15</span><small>%</small></div><div class="stat-title">Feature adoption lift</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS MARQUEE ============ -->
+<div class="skills" aria-label="Skills">
+  <div class="marquee">
+    <div class="marquee-group">
+      <span class="tag tag-lg tag-bordered"><i></i>Product Strategy</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Behavioral UX</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Growth &amp; Experimentation</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Data-informed Design</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Figma · FigJam · Python</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Information Science · Business Analytics</span>
+      <span class="tag tag-lg tag-bordered"><i></i>University of Michigan</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Hypothesis-driven Iteration</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span class="tag tag-lg tag-bordered"><i></i>Product Strategy</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Behavioral UX</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Growth &amp; Experimentation</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Data-informed Design</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Figma · FigJam · Python</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Information Science · Business Analytics</span>
+      <span class="tag tag-lg tag-bordered"><i></i>University of Michigan</span>
+      <span class="tag tag-lg tag-bordered"><i></i>Hypothesis-driven Iteration</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ ABOUT ============ -->
+<section class="section" id="about">
+  <div class="container side-grid">
+    <div class="side-sticky reveal">
+      <div class="overline">About</div>
+      <h2 class="h2">Designing decision <span class="text-primary">environments</span></h2>
+    </div>
+    <div class="reveal">
+      <p class="about-lead">Coming from <mark>landscape architecture</mark>, I was trained to design for complex systems, human behavior, and long-term impact.</p>
+      <p class="about-p">That way of thinking continues to shape how I approach digital products — treating them as decision environments rather than static interfaces. I rely heavily on user research to inform both structure and aesthetics, and I'm intentional about how visual design and usability work together to influence understanding, trust, and action.</p>
+      <p class="about-p">For me, good design is not only usable or visually refined — it creates measurable business value by improving how users engage with, adopt, and rely on a product.</p>
+
+      <div class="divider-text">Education</div>
+      <div class="edu-list">
+        <div class="card card-hover edu-card">
+          <span class="icon-box"><svg class="icon"><use href="#i-book"/></svg></span>
+          <div>
+            <div class="edu-title">Master of Science in Information</div>
+            <div class="edu-school">University of Michigan, Ann Arbor</div>
+            <p class="edu-desc">Interdisciplinary training in UX, data analysis, programming, and business analytics. Coursework includes UX Foundations, Accessibility Research, User Research &amp; Evaluation, AR/VR Game Design, Business Strategy, Interactive Application Development, and Probability. Completed Business Analytics coursework at Ross School of Business.</p>
+            <span class="tag tag-blue">MSI · School of Information</span>
+          </div>
+        </div>
+        <div class="card card-hover edu-card">
+          <span class="icon-box green"><svg class="icon"><use href="#i-public"/></svg></span>
+          <div>
+            <div class="edu-title">Bachelor of Engineering in Landscape Architecture</div>
+            <div class="edu-school">Beijing Forestry University</div>
+            <p class="edu-desc">Representative coursework in Management, Design Fundamentals, Engineering Drawing, and Introduction to Programming. Served as Class President for four years. Member of the Student Union Digital Media Department.</p>
+            <span class="tag tag-green">BE · Landscape Architecture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="divider-text">Additional Programs</div>
+      <div class="prog-grid">
+        <div class="card card-hover prog-card">
+          <h4>Ross School of Business</h4>
+          <p>University of Michigan — Master of Business Analytics · Currently on gap year</p>
+        </div>
+        <div class="card card-hover prog-card">
+          <h4>SCAD</h4>
+          <p>Savannah College of Art and Design — UX Design and Research Foundation Course</p>
+        </div>
+        <div class="card card-hover prog-card">
+          <h4>UC Berkeley</h4>
+          <p>University of California, Berkeley — Media Foundation Summer School</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section class="section section-alt" id="experience">
+  <div class="container side-grid">
+    <div class="side-sticky reveal">
+      <div class="overline">Experience</div>
+      <h2 class="h2">Selected <span class="text-primary">Experience</span></h2>
+      <p>End-to-end designer and researcher across fintech, health tech, and AI products.</p>
+    </div>
+    <div class="reveal">
+      <div class="collapse" id="expCollapse">
+
+        <div class="collapse-item is-open">
+          <button class="collapse-header" aria-expanded="true">
+            <span class="collapse-arrow"><svg class="icon"><use href="#i-right"/></svg></span>
+            <span>
+              <span class="exp-role">UX Developer · Product Designer</span>
+              <span class="exp-company">Bank of America App Redesign — Independent Project <span class="tag tag-blue"><svg class="icon"><use href="#i-star"/></svg>Featured</span></span>
+            </span>
+            <span class="exp-date">Dec 2025 – Jan 2026</span>
+          </button>
+          <div class="collapse-panel"><div><ul class="collapse-content">
+            <li>Led end-to-end interaction and product redesign of core mobile banking workflows, focusing on transactions, product exploration, and spending goals.</li>
+            <li>In early prototype usability testing, redesigned flows reduced required interaction steps by 32% and shortened task completion time by approximately 24%, improving clarity and decision efficiency.</li>
+            <li>Conducted UX research, usability testing, and market comparisons to identify friction in visualization patterns and information hierarchy across mobile banking experiences.</li>
+            <li>Created scalable wireframes and high-fidelity prototypes in Figma, translating research insights into optimized user flows grounded in HCI principles and modern design system practices.</li>
+            <li>Proposed lightweight A/B testing frameworks to validate interaction improvements and support data-informed product decisions.</li>
+            <li>Delivered structured presentations translating research findings into actionable product design strategy for cross-functional stakeholders.</li>
+          </ul></div></div>
+        </div>
+
+        <div class="collapse-item">
+          <button class="collapse-header" aria-expanded="false">
+            <span class="collapse-arrow"><svg class="icon"><use href="#i-right"/></svg></span>
+            <span>
+              <span class="exp-role">Lead Product Designer</span>
+              <span class="exp-company">Business+Tech — Michigan Ross <span class="tag tag-orange"><svg class="icon"><use href="#i-trophy"/></svg>Top 3 Prize</span></span>
+            </span>
+            <span class="exp-date">Oct – Dec 2025</span>
+          </button>
+          <div class="collapse-panel"><div><ul class="collapse-content">
+            <li>Supported enterprise interaction design and product design research projects for e-commerce and platform experiences.</li>
+            <li>Facilitated ideation workshops, prototyping, usability testing, and collaborative research activities using Enterprise Design Thinking.</li>
+            <li>Synthesized UX research findings into scalable visualization, design systems, and optimized mobile experiences.</li>
+            <li>Improved cross-functional communication through structured presentations and research storytelling.</li>
+            <li>Advocated for accessible interaction design, improved user flows, and research-driven product innovation.</li>
+          </ul></div></div>
+        </div>
+
+        <div class="collapse-item">
+          <button class="collapse-header" aria-expanded="false">
+            <span class="collapse-arrow"><svg class="icon"><use href="#i-right"/></svg></span>
+            <span>
+              <span class="exp-role">Product &amp; Data Analytics Intern</span>
+              <span class="exp-company">Articares Pte. Ltd. — Health Robotics</span>
+            </span>
+            <span class="exp-date">Feb – Aug 2025</span>
+          </button>
+          <div class="collapse-panel"><div><ul class="collapse-content">
+            <li>Monitored product KPIs using Google Analytics, Looker Studio, and visualization dashboards, increasing feature adoption by 15%.</li>
+            <li>Applied SQL, web technologies, and strong technical proficiency to support data-driven UX research and product design decisions.</li>
+            <li>Partnered with engineers and designers to align product innovation, interaction design, and user research insights.</li>
+            <li>Contributed to usability testing planning, A/B testing discussions, and stakeholder presentations improving communication across teams.</li>
+          </ul></div></div>
+        </div>
+
+        <div class="collapse-item">
+          <button class="collapse-header" aria-expanded="false">
+            <span class="collapse-arrow"><svg class="icon"><use href="#i-right"/></svg></span>
+            <span>
+              <span class="exp-role">UX Research Consultant</span>
+              <span class="exp-company">Initium.AI — AI Software</span>
+            </span>
+            <span class="exp-date">Sep – Nov 2024</span>
+          </button>
+          <div class="collapse-panel"><div><ul class="collapse-content">
+            <li>Planned and executed end-to-end UX research, including interviews, surveys, usability testing, and research projects for AI software.</li>
+            <li>Applied Human-Computer Interaction frameworks to evaluate interaction design and product design challenges.</li>
+            <li>Produced visualization artifacts, mockups, wireframes, and presentations supporting design systems and product strategy.</li>
+            <li>Translated research insights into scalable user flows, interaction models, and product innovation recommendations.</li>
+          </ul></div></div>
+        </div>
+
+        <div class="collapse-item">
+          <button class="collapse-header" aria-expanded="false">
+            <span class="collapse-arrow"><svg class="icon"><use href="#i-right"/></svg></span>
+            <span>
+              <span class="exp-role">Project Manager</span>
+              <span class="exp-company">Lanqi Architectural Design Consulting</span>
+            </span>
+            <span class="exp-date">2021 – 2022</span>
+          </button>
+          <div class="collapse-panel"><div><ul class="collapse-content">
+            <li>Conducted stakeholder interviews and structured research projects, transforming qualitative insights into measurable KPIs and visualization dashboards.</li>
+            <li>Strengthened cross-functional communication and technical delivery workflows through presentations and collaboration.</li>
+            <li>Influenced design decisions through data-driven storytelling and product innovation strategy alignment.</li>
+          </ul></div></div>
+        </div>
+
+      </div>
+      <div class="alert">
+        <svg class="icon"><use href="#i-info"/></svg>
+        <span>For more experience detail, view my <a class="link" href="https://www.linkedin.com/in/sirong-zhao/" target="_blank" rel="noopener">LinkedIn profile <svg class="icon"><use href="#i-launch"/></svg></a></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WORK ============ -->
+<section class="section" id="work">
+  <div class="container">
+    <div class="work-head reveal">
+      <div>
+        <div class="overline">Portfolio</div>
+        <h2 class="h2">Selected Work</h2>
+      </div>
+      <p>3 case studies · fintech, health, urban systems</p>
+    </div>
+
+    <!-- Featured -->
+    <article class="card card-hover featured reveal">
+      <div class="featured-main">
+        <div class="tag-row">
+          <span class="tag tag-solid"><svg class="icon"><use href="#i-star"/></svg>Featured Case Study</span>
+          <span class="tag">UIUX</span>
+          <span class="tag">Financial App</span>
+          <span class="tag">Behavioral UX</span>
+          <span class="tag">Data Organization</span>
+        </div>
+        <h3 class="work-title">Bank of America —<span class="work-sub">Faster decisions, clearer money moves</span></h3>
+        <p class="work-desc">Evaluated and redesigned core banking workflows across transaction review, product discovery, and goal creation — using research to expose three systemic UX gaps driving user confusion and low decision confidence.</p>
+
+        <div style="margin-top:24px">
+          <div class="block-label">Process</div>
+          <div class="dot-steps">
+            <div class="dot-step"><i></i><span>Research</span></div>
+            <div class="dot-step"><i></i><span>Audit</span></div>
+            <div class="dot-step"><i></i><span>Ideation</span></div>
+            <div class="dot-step"><i></i><span>Prototype</span></div>
+            <div class="dot-step"><i></i><span>Testing</span></div>
+          </div>
+        </div>
+
+        <div class="stats-row">
+          <div><div class="stat-value"><span data-count="32">32</span><small>%</small></div><div class="stat-title">Reduced interaction steps</div></div>
+          <div><div class="stat-value"><span data-count="24">24</span><small>%</small></div><div class="stat-title">Faster task completion</div></div>
+          <div><div class="stat-value"><span data-count="15">15</span><small>%</small></div><div class="stat-title">Feature adoption lift</div></div>
+          <div><div class="stat-value"><span data-count="50">50</span><small>+</small></div><div class="stat-title">Research participants</div></div>
+        </div>
+
+        <div class="work-foot">
+          <div class="desc-list">
+            <div class="desc-item"><div class="desc-label">Role</div><div class="desc-value">UX Designer &amp; Researcher</div></div>
+            <div class="desc-item"><div class="desc-label">Duration</div><div class="desc-value">3 weeks</div></div>
+            <div class="desc-item"><div class="desc-label">Tools</div><div class="desc-value">Figma · FigJam · Python</div></div>
+          </div>
+          <a href="bofa-casestudy.html" class="btn btn-primary">View case study <svg class="icon"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </div>
+      <aside class="featured-side">
+        <div>
+          <div class="block-label">Research Methods</div>
+          <ul class="check-list">
+            <li><svg class="icon"><use href="#i-check"/></svg>50 survey participants</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>6 stakeholder interviews</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>8 competitive comparisons</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>6 card sorting sessions</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Python data analysis</li>
+          </ul>
+        </div>
+        <div style="margin-top:32px">
+          <div class="block-label">Pain Points Solved</div>
+          <ul class="check-list pain">
+            <li><svg class="icon"><use href="#i-check"/></svg>Fragmented financial context</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Marketing-first product pages</li>
+            <li><svg class="icon"><use href="#i-check"/></svg>Goals without decision support</li>
+          </ul>
+        </div>
+      </aside>
+    </article>
+
+    <div class="work-grid">
+      <!-- CalmER -->
+      <article class="card card-hover work-card reveal">
+        <div class="work-card-top">
+          <span class="icon-box orange"><svg class="icon"><use href="#i-heart"/></svg></span>
+          <div class="tag-row" style="justify-content:flex-end">
+            <span class="tag">Business Analysis</span><span class="tag">UIUX</span><span class="tag">AI Chatbot</span>
+          </div>
+        </div>
+        <h3 class="work-title">CalmER</h3>
+        <p class="work-desc">End-to-end product exploration — from market analysis through interactive prototyping — improving financial decision-making and reducing cognitive load in emergency care settings.</p>
+        <div class="process-inline">
+          <span class="tag tag-bordered">Market Analysis</span><svg class="icon"><use href="#i-right"/></svg>
+          <span class="tag tag-bordered">Research</span><svg class="icon"><use href="#i-right"/></svg>
+          <span class="tag tag-bordered">Prototype</span>
+        </div>
+        <div class="work-card-foot">
+          <div class="desc-item"><div class="desc-label">Focus</div><div class="desc-value">Cognitive load reduction</div></div>
+          <a href="calmer-casestudy.html" class="btn btn-text btn-sm stretched">View <svg class="icon arrow-go"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+      <!-- Urban Health -->
+      <article class="card card-hover work-card reveal">
+        <div class="work-card-top">
+          <span class="icon-box green"><svg class="icon"><use href="#i-public"/></svg></span>
+          <div class="tag-row" style="justify-content:flex-end">
+            <span class="tag">ArcGIS</span><span class="tag">Data Analysis</span><span class="tag">CAD</span>
+          </div>
+        </div>
+        <h3 class="work-title">Urban Health Units</h3>
+        <p class="work-desc">A GIS-driven urban health framework translating spatial data into livable green infrastructure, bridging behavioral science and city planning.</p>
+        <div class="process-inline">
+          <span class="tag tag-bordered">Spatial Analysis</span><svg class="icon"><use href="#i-right"/></svg>
+          <span class="tag tag-bordered">Framework</span><svg class="icon"><use href="#i-right"/></svg>
+          <span class="tag tag-bordered">Design</span>
+        </div>
+        <div class="work-card-foot">
+          <div class="desc-item"><div class="desc-label">Focus</div><div class="desc-value">Data → Infrastructure</div></div>
+          <a href="urban-casestudy.html" class="btn btn-text btn-sm stretched">View <svg class="icon arrow-go"><use href="#i-arrow-right"/></svg></a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT CTA ============ -->
+<section class="container reveal" id="contact">
+  <div class="cta">
+    <div style="position:relative;z-index:1">
+      <h2 class="h2">Let's Connect</h2>
+      <p>Open to full-time product design roles</p>
+      <div class="cta-links">
+        <a href="mailto:zhsirong@umich.edu"><svg class="icon"><use href="#i-email"/></svg>zhsirong@umich.edu</a>
+        <a href="https://uxfol.io/rosyzh" target="_blank" rel="noopener"><svg class="icon"><use href="#i-launch"/></svg>UXfolio Address</a>
+      </div>
+    </div>
+    <div class="cta-actions">
+      <button class="btn btn-lg btn-white" data-copy-email><svg class="icon"><use href="#i-copy"/></svg>Copy email</button>
+      <a href="https://www.linkedin.com/in/sirong-zhao/" target="_blank" rel="noopener" class="btn btn-lg btn-ghost-white">LinkedIn</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span class="footer-copy">© 2026 Sirong Zhao · Product Designer</span>
+    <nav class="footer-links" aria-label="Footer">
+      <button data-copy-email>Email</button>
+      <a href="https://www.linkedin.com/in/sirong-zhao/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* Theme switch (Arco light / dark) */
+(function () {
+  const root = document.documentElement;
+  try { const saved = localStorage.getItem('sz-theme'); if (saved) root.setAttribute('data-theme', saved); } catch (e) {}
+  document.getElementById('themeBtn').addEventListener('click', () => {
+    const current = root.getAttribute('data-theme') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    const next = current === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('sz-theme', next); } catch (e) {}
+  });
+})();
+
+/* Message toast + copy email */
+let msgTimer;
+function showMessage(text) {
+  const m = document.getElementById('message');
+  document.getElementById('messageText').textContent = text;
+  m.classList.add('show');
+  clearTimeout(msgTimer);
+  msgTimer = setTimeout(() => m.classList.remove('show'), 2200);
+}
+document.querySelectorAll('[data-copy-email]').forEach(btn => btn.addEventListener('click', () => {
+  const email = 'zhsirong@umich.edu';
+  const done = () => showMessage('Email copied: ' + email);
+  if (navigator.clipboard) navigator.clipboard.writeText(email).then(done, () => showMessage(email));
+  else showMessage(email);
+}));
+
+/* Collapse (accordion) */
+document.querySelectorAll('#expCollapse .collapse-header').forEach(h => h.addEventListener('click', () => {
+  const item = h.parentElement;
+  const open = item.classList.toggle('is-open');
+  h.setAttribute('aria-expanded', open);
+}));
+
+/* Steps — cycles through the design loop */
+(function () {
+  const steps = [...document.querySelectorAll('#philoSteps .step')];
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let i = reduce ? steps.length - 1 : 0;
+  function render() {
+    steps.forEach((s, k) => {
+      s.classList.toggle('is-finish', k < i);
+      s.classList.toggle('is-process', k === i);
+    });
+  }
+  render();
+  if (!reduce) setInterval(() => { i = (i + 1) % steps.length; render(); }, 1800);
+})();
+
+/* Statistic count-up + scroll reveal */
+(function () {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function countUp(el) {
+    const target = +el.dataset.count;
+    if (reduce) { el.textContent = target; return; }
+    const t0 = performance.now(), dur = 1100;
+    (function tick(t) {
+      const p = Math.min((t - t0) / dur, 1);
+      el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(tick);
+    })(t0);
+  }
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('[data-count]').forEach(countUp);
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal, .hero-card').forEach(el => io.observe(el));
+})();
+
+/* Menu active state on scroll */
+(function () {
+  const links = document.querySelectorAll('.menu a[data-nav]');
+  const sections = [...links].map(a => document.getElementById(a.dataset.nav));
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.dataset.nav === e.target.id));
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  sections.forEach(s => s && spy.observe(s));
+})();
+</script>
+</body>
+</html>
